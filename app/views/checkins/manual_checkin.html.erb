@@ -1,0 +1,29 @@
+<% provide(:title, "Add Big Achievement") %>
+
+<div class='row container_center'>
+  	<div class = 'padding_top_container col-md-4 col-md-offset-4 col-xs-10 col-xs-offset-1'>
+  		<h2>Glad to hear you made big progress towards <br><%= @active_goal.short_description.downcase %>!</h2>
+  		<% if !@active_goal.long_description.nil? %>
+        <div class='font_16 padding_lr'><%= @active_goal.long_description %></div>
+      <% end %>
+  	</div>
+
+    <div class="col-md-4 col-md-offset-4 col-xs-10 col-xs-offset-1 font_16 padding_bottom_40">
+      <%= form_for(@new_checkin, method: :post, url: record_checkin_path('manual'), :validate => true) do |f| %>
+        <div class='font_20 padding_10'>How much did you deserve for this accomplishment?</div>
+        <div class='deserve_reward_amt_field'>
+          Add $ <%= f.text_field :contribute_amount, :placeholder => '50' %>
+          </div>
+
+        <!-- <div class='font_20 padding_10'>Want to add a note to this checkin?</div> -->
+        <div class='deserve_reward_field margin_top_20'><%= f.text_field :checkin_note, :placeholder => 'Add note to this achievement' %></div>
+
+        <div class='margin_top_20'><%= f.submit "Add Achievement", class: "btn_large btn_100p margin_top_10" %></div>
+        
+      <% end %>
+    </div>
+    
+    <% if !@active_goal.reward_img.blank? %> <div class='reward_img_container'>
+    	<%= link_to image_tag(@active_goal.reward_img, size: '160x160'), @active_goal.reward_link %>
+    </div><% end %>
+</div>

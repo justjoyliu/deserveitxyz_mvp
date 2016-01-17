@@ -1,0 +1,13 @@
+<% provide(:title, "My Info - DeserveIt.XYZ") %>
+
+<div class='padding_top_container padding_bottom_20 padding_lr_30 container_center background_light_blue2'>
+  <%= form_for(@user, method: :post, url: user_update_path) do |f| %>
+	<div class='underline_input'>
+        <%= f.text_field :name, :placeholder => 'First Name' %>
+	    <%= f.text_field :email, :placeholder => 'Email' %>      	
+	    <%= f.text_field :sms, :value => number_to_phone(@user.sms), :placeholder => 'Phone Number to Receive Checkin Reminders' %>
+	</div>
+	
+	<div class='margin_top_20 margin_bottom_20'><%= f.submit "Save Updates", class: "btn_large btn_100p" %></div>
+  <% end %>
+</div>

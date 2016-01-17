@@ -1,0 +1,5 @@
+<h1>Congrats on reaching your goal, <%= @user.name %>!</h1>
+
+<p>You have accumulated <%= number_to_currency(@goal.goal_total_contribution, :precision => 0) %> from your goal to <%= @goal.short_description.downcase %>.</p>
+
+<p>It's time to reward yourself with a <%= @goal.reward %>. </p>

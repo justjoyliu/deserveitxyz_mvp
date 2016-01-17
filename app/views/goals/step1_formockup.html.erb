@@ -1,0 +1,67 @@
+<% provide(:title, "Set Goal") %>
+<% provide(:footer_flag, "No Footer") %>
+
+<div class='top_container background_light_blue2'>
+  <div class='row'>
+    <h2>What is your goal?</h2>
+
+    <div class="margin_top_10">
+        <div class="col-md-4 col-md-offset-4 col-xs-10 col-xs-offset-1 goal_form">
+          <%= form_for(@new_goal, url: step1_setup_path) do |f| %>
+
+            <!--%= f.text_field :short_description, class: 'form-field text_center', placeholder: 'Goal' %-->
+            <!--%= f.text_field :long_description, class: 'form-field text_center', placeholder: 'Description' %-->
+
+            <div class='goal_form_label'>
+              <input type="radio" name="short_description" value="Be Healthy; Eat less snacks, exercise, loose weight" id='opt1'>
+              <label for='opt1'>
+                <span></span> 30 Day Abs Challenge
+              </label>
+            </div>
+
+            <div class='goal_form_label'>
+              <input type="radio" name="short_description" value="Be Healthy; Eat less snacks, exercise, loose weight" id='opt1'>
+              <label for='opt1'>
+                <span></span> 30 Day Beach Body Challenge
+              </label>
+            </div>
+
+            <div class='goal_form_label'>
+              <input type="radio" name="short_description" value="Get Up Early; Accomplish to do list, be productive" id='opt3'>
+              <label for='opt3'> 
+                <span></span> Get Up Early
+                <div class='font_14'>
+                  <div class='radio_next_line_space'></div> Accomplish to do list, be productive
+                </div>
+              </label>
+            </div>
+
+            <div class='goal_form_label'>
+              <input type="radio" name="short_description" value="Get Up Early; Accomplish to do list, be productive" id='opt3'>
+              <label for='opt3'> 
+                <span></span> Be Healthy
+                <div class='font_14'>
+                  <div class='radio_next_line_space'></div> Exercise, no soda, no sweets
+                </div>
+              </label>
+            </div>
+
+            <div class='goal_form_label'>
+              <input type="radio" name="short_description" value="Custom" id='opt4'>
+              <label for='opt4'> 
+                <span></span> Custom 
+                <div class='goal_custom'>
+                  <input type="text" name="other_goal" placeholder='Goal: no smoking, be healthy'/>
+                  <input type="text" name="goal_desc" placeholder='Description'/>
+                </div>
+              </label>
+            </div>
+
+            <%= f.submit "Set Goal", class: "btn_large btn_100p margin_top_10" %>
+            <div class='margin_top_10'>Next: Reminder Frequency</div>
+            <div class='font_10'><i class="fa fa-circle color_dark"></i> &nbsp;<i class="fa fa-circle-o color_dark"></i> &nbsp;<i class="fa fa-circle-o color_dark"></i></div>
+          <% end %>
+        </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,89 @@
+<% provide(:title, "Set Goal") %>
+<% provide(:footer_flag, "No Footer") %>
+
+<div class='top_container background_light_blue2'>
+  <div class='row'>
+    <h2>What is your goal?</h2>
+    <p>Your goal will appear in the reminder <i class="fa fa-level-down"></i></p>
+    <!-- <p><i class="fa fa-arrow-down"></i></p> -->
+    <!-- <p>We will remind you of this at the frequency you set in the next step.</p> -->
+    <!-- <p>Do this to deserve your reward</p> -->
+
+    <div class="col-md-4 col-md-offset-4 col-xs-10 col-xs-offset-1 goal_example">
+      <div class='inline_40h'>Did you</div>
+      <div id="goals_ticker">
+        <ul>
+          <li class = 'color_green'>Be Healthy</li>
+          <li class = 'color_dark'>Be Focused</li>
+          <li class = 'color_dark_green'>Be Positive</li>
+          <li class = 'color_orange'>Not Smoke</li>
+          <li class = 'color_purple'>Get Up Early</li>
+          <!-- <li class = 'color_purple'>Learning</li> -->
+          <!-- <li class = 'color_purple'>Proactive</li> -->
+        </ul>
+      </div>
+      <div class='inline_40h'>today?</div>
+      <div class='short_desc_mock'>Description will appear below like this</div>
+    </div>
+
+    <div class="margin_top_20">
+        <div class="col-md-4 col-md-offset-4 col-xs-10 col-xs-offset-1 goal_form">
+          <%= form_for(@new_goal, url: step1_setup_path) do |f| %>
+
+            <!--%= f.text_field :short_description, class: 'form-field text_center', placeholder: 'Goal' %-->
+            <!--%= f.text_field :long_description, class: 'form-field text_center', placeholder: 'Description' %-->
+            <div class='goal_form_label'>
+              <input type="radio" name="short_description" value="Do 30 day abs challenege" id='opt1'>
+              <label for='opt1'>
+                <span></span> Do 30 day abs challenege
+              </label>
+            </div>
+
+            <div class='goal_form_label'>
+              <input type="radio" name="short_description" value="Be Healthy; Eat less snacks, exercise, loose weight" id='opt2'>
+              <label for='opt2'>
+                <span></span> Be Healthy
+                <div class='font_14'>
+                  <div class='radio_next_line_space'></div> Eat less snacks, exercise, loose weight
+                </div>
+              </label>
+            </div>
+
+            <div class='goal_form_label'>
+              <input type="radio" name="short_description" value="Stay Focused and Be Positive; Daily to do, less FB, continuously learn" id='opt3'>
+              <label for='opt3'> 
+                <span></span> Stay Focused and Be Positive
+                <div class='font_14'>
+                  <div class='radio_next_line_space'></div> Daily to do, less FB, continuously learn
+                </div>
+              </label>
+            </div>
+            <div class='goal_form_label'>
+              <input type="radio" name="short_description" value="Get Up Early; Accomplish to do list, be productive" id='opt4'>
+              <label for='opt4'> 
+                <span></span> Get Up Early
+                <div class='font_14'>
+                  <div class='radio_next_line_space'></div> Accomplish to do list, be productive
+                </div>
+              </label>
+            </div>
+
+            <div class='goal_form_label'>
+              <input type="radio" name="short_description" value="Custom" id='opt5'>
+              <label for='opt5'> 
+                <span></span> Custom 
+                <div class='goal_custom'>
+                  <input type="text" name="other_goal" placeholder='Goal: quit smoking, go running'/>
+                  <input type="text" name="goal_desc" placeholder='Description'/>
+                </div>
+              </label>
+            </div>
+
+            <%= f.submit "Set Goal", class: "btn_large btn_100p margin_top_10" %>
+            <div class='margin_top_10'>Next: Reminder Frequency</div>
+            <div class='font_10'><i class="fa fa-circle color_dark"></i> &nbsp;<i class="fa fa-circle-o color_dark"></i> &nbsp;<i class="fa fa-circle-o color_dark"></i></div>
+          <% end %>
+        </div>
+    </div>
+  </div>
+</div>

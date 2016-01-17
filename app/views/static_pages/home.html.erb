@@ -1,0 +1,74 @@
+
+<div id='home_main'>
+	<div class='row'>
+		<div class="col-xs-12 col-sm-offset-1 col-sm-5" style='margin-top: 5%'>
+			<br><br>
+			<h1 class='color_light'>Reach your goals <br>more often</h1>
+			<h4 class='line_height_30 color_light'>Motivate yourself with a reward</h4>
+			
+			
+			<% if !logged_in? %>
+				<br>
+				<a href="#get_started">
+			    	<button class='btn_yellow'>Get Early Access!</button>
+				</a>	
+			<% end %>
+		</div>
+
+		<div class="margin_top_30 col-xs-12 col-sm-offset-1 col-sm-5">
+			<br>
+			<%= image_tag("setgoal_iphon6.png", width: '70%') %>
+		</div>
+	</div>
+	
+</div>
+
+<div class='row hiw_step'> 
+	<br>
+	<h2 class='color_light'>How It Works</h2>
+	<div class="wow fadeInLeft hiw_step col-xs-12 col-sm-4"><!-- data-wow-delay="0.2s" -->
+		<div class='hiw_icon'><i class="fa fa-binoculars fa-3x" style='margin-top:10px;'></i> <!-- fa-map-marker --></div>
+		<!-- <h4>1. Set a goal to deserve a reward</h4> -->
+		<h4>1. Set a goal </h4>
+		<h4 class="color_light">Get Up Early</h4>
+		Determine your goal, check-in <br>frequency, and assign reward
+	</div>
+	<div class="wow fadeInLeft hiw_step col-xs-12 col-sm-4">  
+		<div class='hiw_icon'><i class="fa fa-line-chart fa-4x"></i></div>
+		<h4>2. Receive reminders</h4>
+		<h4 class="color_light">Once a day</h4>
+		Check-in, get motivated, <br>build up $ towards your reward 
+	</div>
+	<div class="wow fadeInLeft hiw_step col-xs-12 col-sm-4">
+		<div class='hiw_icon'><i class="fa fa-trophy fa-4x"></i> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-gift fa-4x"></i></div>
+		<h4>3. Get rewarded</h4>
+		<h4 class="color_light">Sous Vide</h4>
+		Reach milestone and reward yourself <br>when you have accumulated enough $
+	</div>
+	<div class='wow bounceInUp margin_top_10 margin_bottom_20 col-xs-12'>
+		<h3 class='color_dark'>It's really that easy + free</h3>
+		<div class='color_dark font_16'>Take the first step to deserve your dream</div>
+	</div>	
+</div>
+
+<% if !logged_in? %>
+<div id = 'get_started' class='row background_light_blue2'>
+	<!-- <h3>Start Achieving a Goal Today</h3> -->
+	<h3>Join our beta!</h3>
+	Coming Soon - Accomplish more goals
+	<br>
+	<div class='col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3 margin_bottom_20'>
+		<%= form_for @user, :validate => true do |f| %>
+      		<%= f.text_field :name, :placeholder => "First Name" %>
+      		<%= f.text_field :email, :placeholder => "Email" %>
+    		<%= f.submit "Get on the List", :class => 'btn_large btn_100p margin_top_10' %>
+  		<% end %>
+	</div>
+
+	<!-- <button class='center-block btn_yellow btn_large'>Start Achieving a Goal!</button>	 -->
+</div>
+<% end %>
+
+<script>
+              new WOW().init();
+              </script>

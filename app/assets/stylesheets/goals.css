@@ -1,0 +1,230 @@
+/*********************************************************************************/
+/* Form for Goal Step 1                                                     */
+/*********************************************************************************/
+	.short_desc_mock{
+		margin: 10px 0;
+		font-size: 14px;
+		font-style: italic;
+	}
+
+	.goal_form{
+		vertical-align: middle;
+		margin-top: 10px;
+		padding: 10px;
+		line-height: 26px;
+		min-height: 460px;
+	}
+
+	.goal_form_label label{
+		font-size: 18px;
+		background-color: #ffffff;
+		width: 100%;
+		text-align: left;
+		padding: 10px 20px;
+		margin-bottom: 1px;
+		opacity: 0.9;
+	}
+
+	.goal_form_label input[type="radio"]:checked + label{
+		opacity: 1;
+	}
+
+	.goal_custom {
+		margin-left: 18px;
+		margin-right: 5px;
+	}
+
+	.goal_custom input[type="text"]{
+	    font-size: 16px;
+	    border-top: none;
+	    border-left: none;
+	    border-right: none;
+	    border-bottom: 1px dashed #191C35;
+	    margin: 5px;
+	}
+
+	.goal_custom input[type="text"]:focus{
+		font-size: 18px;
+	}
+
+	select{
+		text-align: center;
+		width: 240px;
+		padding-left: 20px;
+		background-color: #EFFBFC;
+	}
+
+	.deserve_amt_field input[type="text"]{
+	    font-size: 16px;
+	    border: 0;
+	    background-color: transparent;
+	    text-align: center;
+	    /*padding: 0 10px 2px 0;*/
+	    margin: 5px;
+	    width: 170px;
+	}
+
+	.deserve_amt_field_edit input[type="text"]{
+	    font-size: 16px;
+	    border: 0;
+	    background-color: transparent;
+	    text-align: center;
+	    /*padding: 0 10px 2px 0;*/
+	    margin: 5px;
+	    width: 80px;
+	}
+
+	.deserve_amt_field, .deserve_amt_field_edit {
+    	border-bottom: 1px dashed #191C35;
+    	padding: 10px 30px 10px 20px;
+    	background-color: #EFFBFC;
+	}
+
+	.deserve_reward_field input[type="text"]{
+	    font-size: 20px;
+	    border-top: 0;
+	    border-left: 0;
+	    border-right: 0;
+	    border-bottom: 1px dashed #191C35;
+	    background-color: #EFFBFC;
+	    text-align: center;
+	    padding: 15px;
+	}
+
+	.underline_input input[type="text"]{
+	    border-top: 0;
+	    border-left: 0;
+	    border-right: 0;
+	    border-bottom: 1px dashed #191C35;
+	    background-color: #EFFBFC;
+	    text-align: center;
+	    padding: 10px;
+	}
+
+	.underline_input select{
+	    text-align: center;
+		padding-left: 20px;
+		background-color: #EFFBFC;
+		width: 100%;
+	}
+
+	.deserve_reward_amt_field{
+		border-bottom: 1px dashed #191C35;
+    	padding: 5px 15px;
+    	background-color: #EFFBFC;
+    	width: 100%;
+    	margin-top: 20px;
+	}
+
+	.deserve_reward_amt_field input[type="text"]{
+	    font-size: 20px;
+	    border: 0;
+	    background-color: transparent;
+	    text-align: center;
+	    margin: 5px;
+	    width: 120px;
+	}
+
+
+/*	.deserve_amt_field:before {
+	    font-family: 'FontAwesome';
+	    color:red;
+	    position: relative;
+	    left: -5px;
+	    height: 20px;
+	    line-height: 20px;
+	    border-bottom: 1px dashed #191C35;
+	    content: "\f007";
+	}*/
+
+/*********************************************************************************/
+/* Ticker for Goal Step 1                                                     */
+/*********************************************************************************/
+	.goal_example{
+		vertical-align: center;
+		text-align: center;
+		background-color: #FFFFFF;
+		margin-top: 8px;
+		margin-bottom: 10px;
+		padding: 15px 10px 10px 10px;
+		/*height: 100px;*/
+		/*background-image: url('iphone6.png');*/
+		/*background-size: cover;*/
+		/*background-position: center top;*/
+	}
+
+	.inline_40h{
+		display: inline-block;
+		width: 60px;
+		height: 40px;
+		font-size: 16px;
+		line-height: 40px;
+		text-align: center;
+		overflow: hidden;
+	}
+
+	#goals_ticker {
+		display: inline-block;
+		vertical-align: center;
+		width: 160px;
+		height: 40px;
+		font-size: 20px;
+		font-weight: bold;
+		line-height: 40px;
+		text-align: center;
+		overflow: hidden;
+		-webkit-border-radius: 1px;
+		-moz-border-radius: 1px;
+		border-radius: 1px;
+		position: relative;
+		border-bottom: 1px solid #191C35;
+	} 
+
+		#goals_ticker ul {
+			padding-left: 0px;
+			text-align: center;
+			list-style-type: none;
+			text-transform: uppercase;
+			-webkit-animation: ticker_goals 10s cubic-bezier(1, 0, .5, 0) infinite;
+			-moz-animation: ticker_goals 10s cubic-bezier(1, 0, .5, 0) infinite;
+			-ms-animation: ticker_goals 10s cubic-bezier(1, 0, .5, 0) infinite;
+			animation: ticker_goals 10s cubic-bezier(1, 0, .5, 0) infinite;
+		}
+
+		@-webkit-keyframes ticker_goals {
+			0% {margin-top: -0px;}
+			20% {margin-top: -40px;}
+			40% {margin-top: -80px;}
+			60% {margin-top: -120px;}
+			80% {margin-top: -160px;}
+			100% {margin-top: 0;}
+		}
+		@-moz-keyframes ticker_goals {
+			0% {margin-top: -0px;}
+			10% {margin-top: -50px;}
+			20% {margin-top: -100px;}
+			30% {margin-top: -150px;}
+			40% {margin-top: -200px;}
+			50% {margin-top: -250px;}
+			60% {margin-top: -300px;}
+			70% {margin-top: -350px;}
+			80% {margin-top: -400px;}
+			90% {margin-top: -450px;}
+			100% {margin-top: 0;}
+		}
+		@-ms-keyframes ticker_goals {
+			0% {margin-top: -0px;}
+			20% {margin-top: -40px;}
+			40% {margin-top: -80px;}
+			60% {margin-top: -120px;}
+			80% {margin-top: -160px;}
+			100% {margin-top: 0;}
+		}
+		@keyframes ticker_goals {
+			0% {margin-top: -0px;}
+			20% {margin-top: -40px;}
+			40% {margin-top: -80px;}
+			60% {margin-top: -120px;}
+			80% {margin-top: -160px;}
+			100% {margin-top: 0;}
+		}

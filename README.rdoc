@@ -1,0 +1,3 @@
+== README
+
+Here you will find the barebones MVP version for DeserveIt.XYZ

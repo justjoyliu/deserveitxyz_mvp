@@ -1,0 +1,23 @@
+<% provide(:title, "For Next Time") %>
+
+<div class='container_center padding_10 background_light_blue2'>
+  <div class='padding_top_container margin_lr font_30 font_light'>
+    You can still rock the next check-in
+  </div>
+
+  <div class='checkin_next_time'>
+    <div class='padding_top_10'>
+      <h3><%= @goal.short_description %></h3>
+      <% if !@goal.long_description.empty? %><div class='margin_bottom_20 font_16'><%= @goal.long_description %></div><% end %>
+    </div>
+    
+    <div class='padding_10'>
+      <%= link_to image_tag(@goal.reward_img, size: '160x160'), @goal.reward_link %>
+    </div>
+
+    <div class='font_12 padding_20'>
+      "The only person you are destined to become is the person you decide to be." 
+      <br>Ralph Waldo Emerson
+    </div>
+  </div>
+</div>

@@ -1,0 +1,62 @@
+<% provide(:title, "My Goal - DeserveIt.XYZ") %>
+<% provide(:footer_flag, "No Footer") %>
+
+
+<% if @goal.goal_status == 1 %> 
+  	<div class='padding_top_container padding_bottom_20 container_center background_green font_16'> 
+  		Status: Active 
+  	</div>
+<% elsif @goal.goal_status == 2 %> 
+  	<div class='padding_top_container padding_bottom_20 container_center background_green font_16'> 
+  		Status: Finished - You deserved your reward! 
+  	</div>
+<% elsif @goal.goal_ready_to_activate? %>
+	<div class='padding_top_container_minimum padding_bottom_20 container_center background_light_blue2 font_16'> 
+  		<%= link_to goal_activate_path, method: :post do %>
+		    <button class='btn_yellow btn_100p btn_large'>
+		    	<div class='font_12'>Click Here to</div>
+		    	Activate Now
+		    </button>
+		<% end %>
+  	</div>
+<% else %>
+	<div class='padding_top_container padding_bottom_20 container_center background_gray font_16'> 
+  		Set all fields to activate goal
+  	</div>
+<% end %>
+
+<div class='padding_30 container_center background_light_blue2'>
+  <%= form_for(@goal, method: :post, url: goal_update_path(@goal.permalink), :validate => true) do |f| %>
+	<h3 class='margin_top_10m'><i class="fa fa-binoculars"></i>&nbsp;&nbsp;&nbsp; Goal</h3>
+	    <div class='underline_input'>
+	        	<%= f.text_field :short_description, :placeholder => 'What is your goal?' %>
+	          	<%= f.text_field :long_description, :placeholder => 'Describe your goal' %>
+	    </div>
+
+	<h3 class='padding_top_10'><i class="fa fa-line-chart"></i>&nbsp;&nbsp;&nbsp; Check-In</h3>
+	    <div class='underline_input font_16'>
+	    	<%= f.select :reminder_frequency, Goal.reminder_frequency_choices %>
+	    </div>
+	    <div>
+	        <span class="deserve_amt_field_edit">$ <%= f.text_field :deserve_amount, :placeholder => '3' %></span>
+	        	&nbsp;&nbsp;&nbsp;&nbsp; for every deserved check-in
+	    </div>
+	    
+
+	<h3 class='padding_top_10'><i class="fa fa-trophy"></i>&nbsp;&nbsp;&nbsp; Reward</h3>
+	    <div>
+	    	<div class='underline_input'>
+	    		<%= f.text_field :reward, :placeholder => 'Gadget, Clothing, Accessory, Trip' %>
+	    	</div>
+	    	<div>
+	    		<% if !@goal.amount_needed.nil? %>
+	        		<%= number_to_currency(@goal.goal_total_contribution, :precision => 0) %> earned of &nbsp;&nbsp;&nbsp;
+	        	<% end %>
+	        	<span class="deserve_amt_field_edit">$ <%= f.text_field :amount_needed, :placeholder => '200' %></span>
+	        	&nbsp;&nbsp;&nbsp; needed
+	        </div>
+	    </div>
+	
+	<div class='margin_top_20'><%= f.submit "Save Changes", class: "btn_large btn_100p margin_top_10" %></div>
+  <% end %>
+</div>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= 'DeserveIt.XYZ - ' + yield(:title) %></title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
+  
+  <%= csrf_meta_tags %>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+  <!--     Fonts and icons     -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  <link href='https://fonts.googleapis.com/css?family=Dosis:400,300,700' rel='stylesheet' type='text/css'>
+</head>
+<body>
+	<%= render 'layouts/header' %> 
+    <% flash.each do |message_type, message| %>
+      <div class="alert alert-<%= message_type %>">
+        <div><%= message %></div>
+      </div>
+    <% end %>
+
+	<%= yield %>
+  <% if yield(:footer_flag) != "No Footer" %>
+    <%= render 'layouts/footer' %> 
+  <% end %>
+</body>
+</html>

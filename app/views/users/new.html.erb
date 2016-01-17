@@ -1,0 +1,12 @@
+<% provide(:title, "DeserveIt.XYZ Sign Up") %>
+
+<div class='top_container'>
+	<h1 class='margin_bottom_20'>Start Achieving a Goal Today</h1>
+	<div class="row"><div class="col-md-6 col-md-offset-3">
+		<%= form_for @user, :validate => true do |f| %>
+      		<%= f.text_field :name, :placeholder => "First Name" %>
+      		<%= f.text_field :email, :placeholder => "Email" %>
+    		<%= f.submit "Get Started!", :class => 'btn_large btn_100p margin_top_20' %>
+  		<% end %>
+	</div></div>
+</div>

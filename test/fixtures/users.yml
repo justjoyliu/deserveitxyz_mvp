@@ -1,0 +1,30 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  id              :integer          not null, primary key
+#  name            :string
+#  last_name       :string
+#  email           :string
+#  sms             :string
+#  permalink       :string
+#  activation_flag :boolean          default(FALSE)
+#  activation_code :string
+#  password_digest :string
+#  admin           :boolean          default(FALSE)
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#  remember_token  :string
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  email: MyString
+  permalink: MyString
+
+two:
+  name: MyString
+  email: MyString
+  permalink: MyString

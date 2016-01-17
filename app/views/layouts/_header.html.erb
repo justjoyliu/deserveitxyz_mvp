@@ -1,0 +1,44 @@
+
+<header><nav class="navbar navbar-inverse navbar-fixed-top">
+  <!--  -->
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <i class="fa fa-bars fa-lg"></i>
+        <!-- <span class="icon-bar"></span> -->
+        <!-- <span class="icon-bar"></span> -->
+        <!-- <span class="icon-bar"></span>  -->
+      </button>
+      <a class="navbar-brand" href="/">DeserveIt.XYZ</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right">
+        <% if logged_in? %>
+          <li class='padding_lr'>
+            <%= link_to user_path do %>
+              <i class="fa fa-trophy"></i> &nbsp;&nbsp; My Goals
+            <% end %></li>
+          <li class='padding_lr'>
+            <%= link_to checkin_new_path do %>
+              <i class="fa fa-calendar"></i> &nbsp;&nbsp; Check-in
+            <% end %></li>
+          <li class='padding_lr'>
+            <%= link_to manual_checkin_path do %>
+              <i class="fa fa-diamond"></i> &nbsp;&nbsp; Add Big Achievement</a>
+              <!-- Manual Check-in, Add Achievement -->
+            <% end %></li>
+          <li class='padding_lr'>
+            <%= link_to edit_user_path do %>
+              <i class="fa fa-user"></i> &nbsp;&nbsp; My Info
+            <% end %></li>
+          <li class='padding_lr'><%= link_to logout_path, method: "delete" do %>
+            <i class="fa fa-power-off"></i> &nbsp;&nbsp; Log Out
+          <% end %></li>
+        <% else %>
+          <li class='padding_lr'><a href="/#get_started"> <i class="fa fa-user"></i> &nbsp;&nbsp; Sign Up</a></li>
+          <li class='padding_lr'><a href="/login"> <i class="fa fa-key"></i> &nbsp;&nbsp; Login</a></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</nav> </header>

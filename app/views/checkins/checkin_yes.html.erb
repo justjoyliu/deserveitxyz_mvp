@@ -1,0 +1,34 @@
+<% provide(:title, "For Next Time") %>
+
+<div class='background_light_blue2 container_center padding_10 font_18'>
+  <div class='padding_top_container margin_lr font_light'>
+    <div class='font_30'>Way to go!</div>
+    <br><%= number_to_currency(@checkin.contribute_amount, :precision => 0) %> has been added to your reward bank
+  </div>
+
+  <div class='margin_lr background_light_blue2'>
+    <div class='margin_bottom_20'>
+      <%= render partial: 'goal_progress_chart', locals: { goal_progress: @goal_progress, amount_needed: @goal.amount_needed, percent_progress: @percent_progress } %>
+      </div>
+    </div>
+    
+    <div class='checkin_status'>
+      <div class='margin_bottom_10 font_20'><i class="fa fa-trophy"></i></div>
+
+      <% if @goal.goal_status == 2 %>
+        Congradulations! 
+        <br>You deserved your reward of
+        <br>a 
+        <%= number_to_currency(@goal.amount_needed, :precision => 0) %>
+        <%= @goal.reward %> .
+      <% else %>
+        You will reach your reward of
+        <!-- <br><%= number_to_currency(@goal.amount_needed, :precision => 0) %> for -->
+        <br>a <%= @goal.reward %> 
+        with <%= @goal.checkins_needed %> more checkins.
+
+        <div class='font_14 margin_top_10'>Keep it up for your next checkin!</div> 
+      <% end %>
+    </div>
+  </div>
+</div>

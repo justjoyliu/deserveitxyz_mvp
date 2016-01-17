@@ -1,0 +1,12 @@
+<!--%= render partial: 'goal_progress_chart', locals: { goal_progress: @active_goal.goal_total_contribution, amount_needed: @active_goal.amount_needed, percent_progress: @active_goal.goal_percent_progress } %-->
+<% if amount_needed > goal_progress %>
+	<div class='progress_chart'>
+	    <%= pie_chart({"Contributed" => goal_progress, "Left to Contribute" => (amount_needed - goal_progress)}, colors:['#191C35', 'white'],height: "100%", width: "100%", library: {legend: 'none', backgroundColor: 'transparent', pieHole: 0.6, pieSliceText: 'none', pieSliceBorderColor: 'none'}) %>
+	    <div class='progress_label'><%= percent_progress %> % </div>
+	</div>
+<% else %>
+	<div class='progress_chart'>
+	    <%= pie_chart({"Contributed" => goal_progress, "Left to Contribute" => 0}, colors:['#191C35', 'white'],height: "100%", width: "100%", library: {legend: 'none', backgroundColor: 'transparent', pieHole: 0.6, pieSliceText: 'none', pieSliceBorderColor: 'none'}) %>
+	    <div class='progress_label'><%= percent_progress %> % </div>
+	</div>
+<% end %>

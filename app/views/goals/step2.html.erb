@@ -1,0 +1,24 @@
+<% provide(:title, "Set Check In") %>
+<% provide(:footer_flag, "No Footer") %>
+
+<div class='top_container background_light_blue2'>
+  <div class='row'> 
+    <div class="col-md-4 col-md-offset-4 col-xs-10 col-xs-offset-1 goal_form font_16">
+      <h2>How often should we check in?</h2>
+      <%= form_for(@goal, method: :post, url: step2_setup_path(@goal.permalink), :validate => true) do |f| %>
+        <!--%= f.select :reminder_frequency, ['2x on weekdays (1pm and 6pm)', '2x on weekdays (9am and 6pm)', 'Once every day', 'Once a day on weekdays', 'On Tuesdays and Thursdays', 'On Wednesdays', 'On Fridays'] %-->
+        <%= f.select :reminder_frequency, Goal.reminder_frequency_choices %>
+
+        <div class='margin_top_20'>
+          <div class='font_20 padding_10'>How much is rewarded everytime you deserve it?</div>
+          <span class="deserve_amt_field">$ <%= f.text_field :deserve_amount, :placeholder => '3' %></span>
+        </div>
+
+        <div class='margin_top_20'><%= f.submit "Set Check In", class: "btn_large btn_100p margin_top_10" %></div>
+        
+        <div class='margin_top_10 font_14'>Next: Pick Reward</div>
+        <div class='font_10'><i class="fa fa-circle-o color_dark"></i> &nbsp;<i class="fa fa-circle color_dark"></i> &nbsp;<i class="fa fa-circle-o color_dark"></i></div>
+      <% end %>
+    </div>
+  </div>
+</div>

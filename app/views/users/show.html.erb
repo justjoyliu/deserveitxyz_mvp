@@ -1,0 +1,72 @@
+<% provide(:title, "Reach My Goals - DeserveIt.XYZ") %>
+
+<% if @active_goal.present? %>
+  <div class='background_light_blue2 container_center padding_20 link_normal'>
+  	<div class='padding_top_container padding_bottom_20 margin_lr font_light'>
+  		<div class='margin_bottom_10'>Active Goal</div>
+  		<%= link_to goal_path(@active_goal.permalink) do %>
+  		  <div class='font_30'><%= @active_goal.short_description.titlecase %></div>
+  		  <div class='font_18'>
+  	    	<%= @active_goal.long_description %>
+		    	<br> for a <%= @active_goal.reward %> 
+  		  </div>
+  	  <% end %>
+  	  <div class='margin_top_20m'>
+  	    <%= render partial: 'goal_progress_chart', locals: { goal_progress: @active_goal.goal_total_contribution, amount_needed: @active_goal.amount_needed, percent_progress: @active_goal.goal_percent_progress } %>
+  	  </div>
+  	  <div class='margin_top_20m font_18'>
+  	    <%= number_to_currency(@active_goal.goal_total_contribution, :precision => 0) %> <span class='font_12'> earned of </span> <%= number_to_currency(@active_goal.amount_needed, :precision => 0) %> <span class='font_12'> needed </span>
+  	    <div class='margin_top_10 font_20'><i class="fa fa-trophy"></i></div>
+  	  </div>
+  	</div>
+  </div>
+  <%= link_to checkin_new_path do %>
+        <button class='font_height_2 background_dark btn_100p btn_lower_shadow btn_large'>
+          <i class="fa fa-calendar"></i>&nbsp;&nbsp;&nbsp;Check-in Now&nbsp;
+        </button>
+  <% end %>
+<% else %>
+  <div class = 'container_center padding_top_container_minimum'> <div>
+<% end %>
+
+<% @inactive_goal.each do |g| %>
+  	<div class='contain_inset_light_gray container_center padding_30 link_normal'>
+  	  <%= link_to goal_path(g.permalink) do %>
+  		<div class='font_18 margin_bottom_10'><%= g.short_description %></div>
+  		<div> for a 
+  			<% if g.reward.nil? %>
+  				??? (need to pick a reward)
+  			<% else %>
+  				<%= g.reward %> 
+  				<% if !g.amount_needed.nil? %>
+	  				<div class='color_green'>
+	  					<%= number_to_currency(g.goal_total_contribution, :precision => 0) %> <span class='font_12'> earned of </span> 
+	  					<%= number_to_currency(g.amount_needed, :precision => 0) %> <span class='font_12'> needed </span>
+	  				</div>
+	  			<% end %>
+  			<% end %>
+  		</div>
+  	  <% end %>
+  	</div>
+<% end %>
+
+<%= link_to step1_path do %>
+    <button class='btn_yellow btn_100p btn_large'><br>+ Start a New Goal<br>&nbsp;</button>
+<% end %>
+
+<% @completed_goal.each do |g| %>
+  	<div class='contain_inset_light_gray background_light_blue container_center padding_20 link_normal'>
+  	  <%= link_to goal_path(g.permalink) do %>
+  		<div class='font_18'>Goal Completed on <%= g.goal_last_checkin.strftime("%m/%d/%Y") %></div>
+  		<div class='font_16'><%= g.short_description %></div>
+  		<div> for a 
+  			<span class='color_green'><%= number_to_currency(g.amount_needed, :precision => 0) %></span>
+  			<% if g.reward.nil? %>
+  				something
+  			<% else %>
+  				<%= g.reward %> 
+  			<% end %>
+  		</div>
+  	  <% end %>
+  	</div>
+<% end %>

@@ -1,0 +1,23 @@
+<% provide(:title, "Set Reward") %>
+<% provide(:footer_flag, "No Footer") %>
+
+<div class='top_container background_light_blue2'>
+  <div class='row'> 
+    <div class="col-md-4 col-md-offset-4 col-xs-10 col-xs-offset-1 goal_form font_16">
+      <!-- <h2>What should you be rewarded with?</h2> -->
+      <h2>What is your reward to deserve?</h2>
+      <%= form_for(@goal, method: :post, url: step3_setup_path(@goal.permalink), :validate => true) do |f| %>
+        <div class='margin_top_20 deserve_reward_field'>
+          <%= f.text_field :reward, :placeholder => 'Gadget, Clothing, Accessory, Trip' %>
+        </div>
+        <div class='deserve_reward_amt_field'>
+          $ <%= f.text_field :amount_needed, :placeholder => '200', :class => 'font_20' %> needed
+        </div>
+
+        <div class='margin_top_20'><%= f.submit "Let's Begin", class: "btn_large btn_100p margin_top_10" %></div>
+        
+        <div class='font_10 margin_top_10'><i class="fa fa-circle-o color_dark"></i> &nbsp;<i class="fa fa-circle-o color_dark"></i>&nbsp;<i class="fa fa-circle color_dark"></i></div>
+      <% end %>
+    </div>
+  </div>
+</div>
